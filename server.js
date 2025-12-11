@@ -87,7 +87,8 @@ app.use(
       "http://localhost:3000",
       "http://localhost:3001",
       "https://tmdtsach-fe.vercel.app",
-      "https://tmdtsach-be.onrender.com"
+      "https://tmdtsach-be.onrender.com",
+      "https://tmdtsach-admin.vercel.app"
     ],
     credentials: true, // Cho phép gửi cookie qua CORS
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
