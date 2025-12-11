@@ -41,7 +41,7 @@ const server = http.createServer(app)
 // Khởi tạo Socket.io với CORS
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000", "http://localhost:3001"],
+    origin: "*", // Cho phép tất cả các origin
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
   }
@@ -71,10 +71,10 @@ io.on("connection", (socket) => {
   })
 })
 
-// Cấu hình CORS - cho phép frontend truy cập
+// Cấu hình CORS - cho phép tất cả origins truy cập
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173" , "http://localhost:3000","http://localhost:3001"],
+    origin: "*", // Cho phép tất cả các origin
     credentials: true, // Cho phép gửi cookie qua CORS
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
