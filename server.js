@@ -41,7 +41,14 @@ const server = http.createServer(app)
 // Khởi tạo Socket.io với CORS
 const io = new Server(server, {
   cors: {
-    origin: "*", // Cho phép tất cả các origin
+    origin: [
+      "http://localhost:5173", 
+      "http://127.0.0.1:5173", 
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "https://tmdtsach-fe.vercel.app",
+      "https://tmdtsach-be.onrender.com"
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
   }
@@ -71,10 +78,17 @@ io.on("connection", (socket) => {
   })
 })
 
-// Cấu hình CORS - cho phép tất cả origins truy cập
+// Cấu hình CORS - cho phép các origins cụ thể
 app.use(
   cors({
-    origin: "*", // Cho phép tất cả các origin
+    origin: [
+      "http://localhost:5173", 
+      "http://127.0.0.1:5173", 
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "https://tmdtsach-fe.vercel.app",
+      "https://tmdtsach-be.onrender.com"
+    ],
     credentials: true, // Cho phép gửi cookie qua CORS
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
